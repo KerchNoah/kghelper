@@ -1,0 +1,254 @@
+{
+    "ada_lovelace": {
+        "leader": "Ada Lovelace",
+        "civ": "None",
+        "abilities": "+2 Science per Age in each city when completing a Civic Mastery. Gain Culture equal to 50% of total Science per turn when completing a Tech Mastery.",
+        "ancient_pairing": "N/A",
+        "medieval_pairing": "N/A",
+        "modern_pairing": "N/A",
+        "synergy": "Strong early Science and Culture economy by chaining Masteries. Best paired with civs that accelerate Civic/Tech progression."
+    },
+    "amina": {
+        "leader": "Amina",
+        "civ": "None",
+        "abilities": "+1 Resource Capacity in cities, +1 Gold per Age for each resource, +5 Combat Strength on Plains and Desert.",
+        "ancient_pairing": "Aksumite",
+        "medieval_pairing": "Any desert-focused civ",
+        "modern_pairing": "Trade-heavy civs",
+        "synergy": "Synergizes with economic and resource-rich civs for strong early-game gold and military power on desert terrain."
+    },
+    "ashoka_dhammaraja": {
+        "leader": "Ashoka (Dhammaraja)",
+        "civ": "None",
+        "abilities": "+1 Food per 5 excess Happiness, +10% Food in Settlements during Celebrations, +1 Happiness adjacency bonus for buildings/improvements.",
+        "ancient_pairing": "Food-rich civ",
+        "medieval_pairing": "Growth-focused civ",
+        "modern_pairing": "Religious civ",
+        "synergy": "Ideal for population booms and rapid expansion fueled by happiness and celebrations."
+    },
+    "ashoka_devaraja": {
+        "leader": "Ashoka (Devaraja)",
+        "civ": "None",
+        "abilities": "+1 Production per 5 excess Happiness, +10% Production in non-founder Settlements, Formal War grants Celebration, +5 Combat vs Fortified Districts during Celebration.",
+        "ancient_pairing": "Production-heavy civ",
+        "medieval_pairing": "Military-focused civ",
+        "modern_pairing": "Builder civ",
+        "synergy": "Supports aggressive expansion and infrastructure growth through warfare and celebration synergy."
+    },
+    "augustus": {
+        "leader": "Augustus",
+        "civ": "None",
+        "abilities": "+1 Influence per Suzerain City-State, -15% Production cost for Districts in the Capital.",
+        "ancient_pairing": "City-State civ",
+        "medieval_pairing": "Influence-focused civ",
+        "modern_pairing": "Economic civ",
+        "synergy": "Strong with civs that maximize Suzerain bonuses and produce early districts efficiently."
+    },
+    "benjamin_franklin": {
+        "leader": "Benjamin Franklin",
+        "civ": "None",
+        "abilities": "+1 Culture for each adjacent District, +1 Science per Improved Bonus Resource.",
+        "ancient_pairing": "Urban civ",
+        "medieval_pairing": "Resource-rich civ",
+        "modern_pairing": "Scientific civ",
+        "synergy": "Great for interconnected cities and infrastructure-focused playstyles that generate Culture and Science."
+    },
+    "catherine_the_great": {
+        "leader": "Catherine the Great",
+        "civ": "None",
+        "abilities": "+1 Culture per Luxury resource worked, Spies start with free Promotion.",
+        "ancient_pairing": "Luxury-rich civ",
+        "medieval_pairing": "Espionage civ",
+        "modern_pairing": "Cultural civ",
+        "synergy": "Excels in cultural dominance and counter-espionage via resource collection and spy network."
+    },
+    "charlemagne": {
+        "leader": "Charlemagne",
+        "civ": "None",
+        "abilities": "+5 Combat Strength near Holy Sites, +1 Production from Holy Sites.",
+        "ancient_pairing": "Religious civ",
+        "medieval_pairing": "Faith-military hybrid civ",
+        "modern_pairing": "Builder civ",
+        "synergy": "Rewards spiritual devotion with military defense, strong with early religious districts."
+    },
+    "confucius": {
+        "leader": "Confucius",
+        "civ": "None",
+        "abilities": "+1 Faith per 3 Citizens, +1 Great Prophet point when completing Civics.",
+        "ancient_pairing": "Faith civ",
+        "medieval_pairing": "Population-growth civ",
+        "modern_pairing": "Culture civ",
+        "synergy": "Encourages civic development and city growth while building toward Great People and religion."
+    },
+    "frederick_baroque": {
+        "leader": "Frederick (Baroque)",
+        "civ": "None",
+        "abilities": "+1 Great Musician point per Theater Square. Great Works of Music generate +1 Culture and +1 Loyalty.",
+        "ancient_pairing": "Culture civ",
+        "medieval_pairing": "Music-focused civ",
+        "modern_pairing": "Tourism civ",
+        "synergy": "Strong cultural synergy through early Musician points and loyalty boosts from Great Works."
+    },
+    "frederick_oblique": {
+        "leader": "Frederick (Oblique)",
+        "civ": "None",
+        "abilities": "+5 Combat Strength vs civilizations with less Culture. Units generate +1 Culture per kill.",
+        "ancient_pairing": "Aggressive civ",
+        "medieval_pairing": "Militaristic civ",
+        "modern_pairing": "Culture civ",
+        "synergy": "Blends conquest and culture by encouraging offensive plays that generate Culture."
+    },
+    "harriet_tubman": {
+        "leader": "Harriet Tubman",
+        "civ": "None",
+        "abilities": "+1 Movement for Recon units. Cities generate +1 Housing if connected to the Capital by Road.",
+        "ancient_pairing": "Exploration civ",
+        "medieval_pairing": "Infrastructure civ",
+        "modern_pairing": "Loyalty civ",
+        "synergy": "Benefits empires with early scouting and infrastructure growth, aiding expansion and loyalty."
+    },
+    "hatshepsut": {
+        "leader": "Hatshepsut",
+        "civ": "None",
+        "abilities": "Trade Routes to or from cities on Rivers grant +1 Gold and +1 Faith. Rivers yield +1 Food.",
+        "ancient_pairing": "River-heavy civ",
+        "medieval_pairing": "Trade civ",
+        "modern_pairing": "Faith civ",
+        "synergy": "Thrives on river-based cities and trade routes, combining economic and spiritual growth."
+    },
+    "himiko_queen": {
+        "leader": "Himiko (Queen of Wa)",
+        "civ": "None",
+        "abilities": "+1 Faith for every City-State you're Suzerain of. Can levy City-State units at 50% cost.",
+        "ancient_pairing": "City-State civ",
+        "medieval_pairing": "Faith civ",
+        "modern_pairing": "Military civ",
+        "synergy": "Combines religious and military playstyles with heavy City-State integration."
+    },
+    "himiko_shaman": {
+        "leader": "Himiko (High Shaman)",
+        "civ": "None",
+        "abilities": "Religious units heal 10 HP per turn in neutral territory. +1 Culture per Holy Site adjacency.",
+        "ancient_pairing": "Religious civ",
+        "medieval_pairing": "Faith-culture hybrid",
+        "modern_pairing": "Wide civ",
+        "synergy": "Encourages spiritual growth and territory control through healing and cultural adjacency."
+    },
+    "ibn_battuta": {
+        "leader": "Ibn Battuta",
+        "civ": "None",
+        "abilities": "+1 Movement for Traders. +1 Gold for each District type in destination city.",
+        "ancient_pairing": "Trade civ",
+        "medieval_pairing": "Economic civ",
+        "modern_pairing": "Wide civ",
+        "synergy": "Excels in intercity and international trade with increased mobility and economic output."
+    },
+    "isabella": {
+        "leader": "Isabella",
+        "civ": "None",
+        "abilities": "Missionaries eliminate 2 heresy. +1 Faith per foreign city following your Religion.",
+        "ancient_pairing": "Religious civ",
+        "medieval_pairing": "Wide religious civ",
+        "modern_pairing": "Faith-diplomatic civ",
+        "synergy": "Dominates with aggressive religious spread and pressure from afar, ideal for theocracies."
+    },
+    "jose_rizal": {
+        "leader": "Jos\u00e9 Rizal",
+        "civ": "None",
+        "abilities": "Campus and Theater Squares adjacent to districts generate +1 Great Writer and +1 Great Scientist point.",
+        "ancient_pairing": "Scientific civ",
+        "medieval_pairing": "Cultural civ",
+        "modern_pairing": "Great People civ",
+        "synergy": "Drives Great People generation by emphasizing adjacency and balanced development."
+    },
+    "la_fayette": {
+        "leader": "La Fayette",
+        "civ": "None",
+        "abilities": "+1 Influence point per turn. Units adjacent to City Centers gain +5 Combat Strength.",
+        "ancient_pairing": "City-focused civ",
+        "medieval_pairing": "Influence civ",
+        "modern_pairing": "Military civ",
+        "synergy": "Defensive and diplomatic support leader that thrives on proximity and influence."
+    },
+    "machiavelli": {
+        "leader": "Machiavelli",
+        "civ": "None",
+        "abilities": "+2 Espionage capacity. Enemy Spies operate at -1 level in your cities.",
+        "ancient_pairing": "Science civ",
+        "medieval_pairing": "Diplomatic civ",
+        "modern_pairing": "Espionage civ",
+        "synergy": "Highly defensive against espionage, strong late-game diplomatic or tech advantage."
+    },
+    "napoleon_revolutionary": {
+        "leader": "Napoleon (Revolutionary)",
+        "civ": "None",
+        "abilities": "Revolting cities generate +1 Production and +5 Loyalty pressure per turn. +10 Combat Strength in Loyalty-neutral cities.",
+        "ancient_pairing": "Expansion civ",
+        "medieval_pairing": "Loyalty civ",
+        "modern_pairing": "Military civ",
+        "synergy": "Rewards loyalty manipulation and playing near revolt thresholds for combat and production."
+    },
+    "napoleon_emperor": {
+        "leader": "Napoleon (Emperor)",
+        "civ": "None",
+        "abilities": "All units receive +2 Combat Strength. -1 Maintenance for all units.",
+        "ancient_pairing": "Wide civ",
+        "medieval_pairing": "Aggressive civ",
+        "modern_pairing": "Production civ",
+        "synergy": "Flat military bonuses make him a universal fit for domination playstyles."
+    },
+    "pachacuti": {
+        "leader": "Pachacuti",
+        "civ": "None",
+        "abilities": "+1 Food and Production on Hills. Trade Routes ignore hills movement cost.",
+        "ancient_pairing": "Hill-heavy civ",
+        "medieval_pairing": "Infrastructure civ",
+        "modern_pairing": "Trade civ",
+        "synergy": "Ideal for mountainous regions, enhancing yields and mobility across terrain."
+    },
+    "simon_bolivar": {
+        "leader": "Sim\u00f3n Bol\u00edvar",
+        "civ": "None",
+        "abilities": "+1 Movement for all land units. +10 Combat Strength when starting in friendly territory.",
+        "ancient_pairing": "Military civ",
+        "medieval_pairing": "Wide civ",
+        "modern_pairing": "Mobility civ",
+        "synergy": "Great for initiating combat, especially in expansive friendly territory."
+    },
+    "tecumseh": {
+        "leader": "Tecumseh",
+        "civ": "None",
+        "abilities": "+1 Combat Strength per adjacent Tribal Village. Tribal Villages provide +10 XP to all units.",
+        "ancient_pairing": "Exploration civ",
+        "medieval_pairing": "Wilderness civ",
+        "modern_pairing": "Mobility civ",
+        "synergy": "Strong start through village exploitation and unit experience stacking."
+    },
+    "trung_trac": {
+        "leader": "Tr\u01b0ng Tr\u1eafc",
+        "civ": "None",
+        "abilities": "Conquering a city grants +1 Movement and +5 Combat Strength to all units for 5 turns.",
+        "ancient_pairing": "Aggressive civ",
+        "medieval_pairing": "Domination civ",
+        "modern_pairing": "Rapid expansion civ",
+        "synergy": "Powerful momentum-builder for consecutive wars and territorial gains."
+    },
+    "xerxes_king_of_kings": {
+        "leader": "Xerxes (King of Kings)",
+        "civ": "None",
+        "abilities": "Puppeted cities generate +1 Gold and +1 Culture. +1 Loyalty in all cities per puppeted city.",
+        "ancient_pairing": "Wide civ",
+        "medieval_pairing": "City-taking civ",
+        "modern_pairing": "Loyalty civ",
+        "synergy": "Supports wide empires through indirect control and passive benefits from conquered cities."
+    },
+    "xerxes_achaemenid": {
+        "leader": "Xerxes (Achaemenid)",
+        "civ": "None",
+        "abilities": "+1 Trade Route capacity. Trade Routes to other civilizations grant +2 Culture and +2 Gold.",
+        "ancient_pairing": "Trade civ",
+        "medieval_pairing": "Diplomatic civ",
+        "modern_pairing": "Cultural civ",
+        "synergy": "Strong economic and cultural growth via inter-civ commerce and diplomacy."
+    }
+}

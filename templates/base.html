@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>KG Helper</title>
+</head>
+<body>
+    <nav>
+        <a href="{{ url_for('home') }}">Home</a> |
+        <a href="{{ url_for('civ7') }}">Civ 7 Combos</a>
+    </nav>
+    <hr>
+    {% block content %}{% endblock %}
+</body>
+</html>
+
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>

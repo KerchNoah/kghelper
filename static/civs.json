@@ -1,0 +1,142 @@
+{
+    "aksumite": {
+        "name": "Aksumite",
+        "bonuses": "+1 Faith from International Trade Routes. +1 Gold per unique luxury resource.",
+        "focus": "Economic, Religious"
+    },
+    "america": {
+        "name": "America",
+        "bonuses": "Extra Influence points. Improved yields from diplomatic visibility.",
+        "focus": "Diplomatic, Cultural"
+    },
+    "arabia": {
+        "name": "Arabia",
+        "bonuses": "+1 Science from Holy Sites. +1 Faith per Research Lab.",
+        "focus": "Scientific, Religious"
+    },
+    "aztec": {
+        "name": "Aztec",
+        "bonuses": "Builders can be used to rush Districts. +1 Combat Strength for each Luxury resource.",
+        "focus": "Military, Production"
+    },
+    "babylon": {
+        "name": "Babylon",
+        "bonuses": "Eurekas provide full Technologies. -50% Science output.",
+        "focus": "Scientific, Burst Economy"
+    },
+    "byzantium": {
+        "name": "Byzantium",
+        "bonuses": "+3 Combat Strength and +1 Faith per Religious unit adjacent to enemy units.",
+        "focus": "Religious, Military"
+    },
+    "china": {
+        "name": "China",
+        "bonuses": "Bonus to Wonder construction. Builders get +1 charge.",
+        "focus": "Cultural, Builder"
+    },
+    "egypt": {
+        "name": "Egypt",
+        "bonuses": "Rivers grant bonus yields. Wonders on floodplains build faster.",
+        "focus": "Cultural, Economic"
+    },
+    "england": {
+        "name": "England",
+        "bonuses": "Extra Trade Routes and Production from Royal Navy Dockyards.",
+        "focus": "Naval, Trade"
+    },
+    "ethiopia": {
+        "name": "Ethiopia",
+        "bonuses": "+1 Faith per Improved resource. Diplomatic Favor from Faith.",
+        "focus": "Religious, Diplomatic"
+    },
+    "france": {
+        "name": "France",
+        "bonuses": "Spies operate at 1 level higher. +20% Production toward Medieval, Renaissance Wonders.",
+        "focus": "Espionage, Cultural"
+    },
+    "germany": {
+        "name": "Germany",
+        "bonuses": "+1 Military Policy slot. Bonus Production to Industrial Zones.",
+        "focus": "Production, Military"
+    },
+    "greece": {
+        "name": "Greece",
+        "bonuses": "+1 Wildcard Policy slot. Culture from city-state alliances.",
+        "focus": "Cultural, Diplomatic"
+    },
+    "inca": {
+        "name": "Inca",
+        "bonuses": "Farms on Hills. Mountain tiles give bonus Food.",
+        "focus": "Agriculture, Terrain"
+    },
+    "india": {
+        "name": "India",
+        "bonuses": "Religious diversity boosts Amenities. +1 Faith per foreign Religion.",
+        "focus": "Religious, Happiness"
+    },
+    "indonesia": {
+        "name": "Indonesia",
+        "bonuses": "Coastal cities gain Production. Faith bonus for adjacent Sea resources.",
+        "focus": "Naval, Religious"
+    },
+    "japan": {
+        "name": "Japan",
+        "bonuses": "Districts receive extra adjacency. Units fight better on coast.",
+        "focus": "Balanced, Coastal"
+    },
+    "kongo": {
+        "name": "Kongo",
+        "bonuses": "No Holy Sites. Culture and Great People bonuses from Sculptures and Relics.",
+        "focus": "Cultural, Population"
+    },
+    "maurya": {
+        "name": "Maurya",
+        "bonuses": "Settlers are 30% cheaper. +1 Housing in newly founded cities.",
+        "focus": "Expansion, Growth"
+    },
+    "mexico": {
+        "name": "Mexico",
+        "bonuses": "Military Alliances provide extra Culture. Bonus Production when aiding allies.",
+        "focus": "Diplomatic, Cultural"
+    },
+    "mongolia": {
+        "name": "Mongolia",
+        "bonuses": "+6 Combat Strength when having higher Diplomatic Visibility. Trade Routes increase visibility.",
+        "focus": "Military, Trade"
+    },
+    "persia": {
+        "name": "Persia",
+        "bonuses": "Roads built instantly in conquered cities. Bonus Culture from internal Trade Routes.",
+        "focus": "Expansion, Infrastructure"
+    },
+    "philippines": {
+        "name": "Philippines",
+        "bonuses": "Bonus yields on coastal and river tiles. Culture from adjacent improvements.",
+        "focus": "Naval, Cultural"
+    },
+    "rome": {
+        "name": "Rome",
+        "bonuses": "Free Monument in all new cities. Roads built automatically.",
+        "focus": "Expansion, Infrastructure"
+    },
+    "russia": {
+        "name": "Russia",
+        "bonuses": "Extra territory when founding cities. Faith and Production from tundra.",
+        "focus": "Territory, Religious"
+    },
+    "shawnee": {
+        "name": "Shawnee",
+        "bonuses": "Forts provide Loyalty. Extra Combat Strength near encampments.",
+        "focus": "Military, Loyalty"
+    },
+    "spain": {
+        "name": "Spain",
+        "bonuses": "Trade Routes to other continents yield more. Missionaries are cheaper.",
+        "focus": "Religious, Trade"
+    },
+    "viet": {
+        "name": "Vietnam",
+        "bonuses": "Woods and Marsh tiles give bonus Combat Strength and Culture.",
+        "focus": "Terrain, Cultural"
+    }
+}

@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Create a Custom Combo</h2>
+
+<label>Select a Predefined Leader:</label><br>
+<select id="leader-select">
+    <option value="">-- Choose a Leader --</option>
+</select><br><br>
+
+<label>Select a Civilization:</label><br>
+<select id="civ-select">
+    <option value="">-- Choose a Civ --</option>
+</select><br><br>
+
+<form action="/add_combo" method="POST">
+    <label>Leader:</label><br>
+    <input type="text" name="leader" required><br>
+
+    <label>Civilization:</label><br>
+    <input type="text" name="civ" required><br>
+
+    <label>Leader Abilities:</label><br>
+    <textarea name="abilities" required></textarea><br>
+
+    <label>Civilization Bonuses:</label><br>
+    <textarea id="civ-bonuses" readonly></textarea><br>
+
+    <label>Synergy Explanation:</label><br>
+    <textarea name="synergy" required></textarea><br><br>
+
+    <button type="submit">Add Combo</button>
+</form>
+
+    <script>
+    let leaders = {};
+    let civs = {};
+
+    fetch("/static/combos.json")
+        .then(r => r.json())
+        .then(data => {
+            leaders = data;
+            const leaderSelect = document.getElementById("leader-select");
+            for (const key in data) {
+                const option = document.createElement("option");
+                option.value = key;
+                option.textContent = data[key].leader;
+                leaderSelect.appendChild(option);
+            }
+        });
+
+    fetch("/static/civs.json")
+        .then(r => r.json())
+        .then(data => {
+            civs = data;
+            const civSelect = document.getElementById("civ-select");
+            for (const key in data) {
+                const option = document.createElement("option");
+                option.value = key;
+                option.textContent = data[key].name;
+                civSelect.appendChild(option);
+            }
+        });
+
+    document.getElementById("leader-select").addEventListener("change", function () {
+        const sel = this.value;
+        if (!sel || !leaders[sel]) return;
+        const combo = leaders[sel];
+        document.querySelector('input[name="leader"]').value = combo.leader;
+        document.querySelector('textarea[name="abilities"]').value = combo.abilities;
+    });
+
+    document.getElementById("civ-select").addEventListener("change", function () {
+        const sel = this.value;
+        if (!sel || !civs[sel]) return;
+        const civ = civs[sel];
+        document.querySelector('input[name="civ"]').value = civ.name;
+        document.getElementById("civ-bonuses").value = civ.bonuses;
+    });
+    </script>
+	
+	<h2>Saved Combos</h2>
+
+<div id="combo-container">
+    {% for combo in combos %}
+        <div class="combo" data-civ="{{ combo['civ'] }}" style="border:1px solid #555; padding:15px; margin-bottom:20px; border-radius:6px; background:#222; color:#eee;">
+            <h3>{{ combo['leader'] }} of {{ combo['civ'] }}</h3>
+            <p><strong>Leader Abilities:</strong> {{ combo['abilities'] }}</p>
+            <p class="civ-bonus"><strong>Civ Bonuses:</strong> <em>Loading...</em></p>
+            <p><strong>Synergy:</strong> {{ combo['synergy'] }}</p>
+			
+			 <form action="/delete/{{ combo['id'] }}" method="POST" style="margin-top:10px;">
+        <button type="submit" style="background:#c00; color:#fff; border:none; padding:5px 10px; border-radius:4px;">
+            Delete
+        </button>
+    </form>
+        </div>
+    {% endfor %}
+</div>
+
+<script>
+fetch("/static/civs.json")
+    .then(r => r.json())
+    .then(data => {
+        document.querySelectorAll(".combo").forEach(div => {
+            const civName = div.getAttribute("data-civ");
+            const match = Object.values(data).find(c => c.name === civName);
+            if (match) {
+                const bonusPara = div.querySelector(".civ-bonus");
+                bonusPara.innerHTML = `<strong>Civ Bonuses:</strong> ${match.bonuses}`;
+            }
+        });
+    });
+</script>
+{% endblock %}

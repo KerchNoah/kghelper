@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>Edit Combo</h1>
+    <form method="POST">
+        <label>Leader:</label><br>
+        <input type="text" name="leader" value="{{ combo['leader'] }}" required><br>
+
+        <label>Civilization:</label><br>
+        <input type="text" name="civ" value="{{ combo['civ'] }}" required><br>
+
+        <label>Reason:</label><br>
+        <textarea name="reason" required>{{ combo['reason'] }}</textarea><br><br>
+
+        <button type="submit">Save Changes</button>
+        <a href="{{ url_for('civ7') }}">Cancel</a>
+    </form>
+{% endblock %}
