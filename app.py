@@ -27,6 +27,10 @@ def get_combo(id):
 def home():
     return render_template("home.html")
 
+@app.route("/cf26")
+def cf26_home():
+    return render_template("cf26/index.html")
+
 @app.route("/civ7")
 def civ7():
     combos = get_combos()
@@ -38,17 +42,16 @@ def add_combo():
         leader = request.form["leader"]
         civ = request.form["civ"]
         abilities = request.form["abilities"]
-        synergy = request.form["synergy"]
 
         conn = sqlite3.connect(DB_PATH)
         conn.execute("""
-            INSERT INTO combos (leader, civ, abilities, synergy)
-            VALUES (?, ?, ?, ?)
-        """, (leader, civ, abilities, synergy))
+            INSERT INTO combos (leader, civ, abilities)
+            VALUES (?, ?, ?)
+        """, (leader, civ, abilities))
         conn.commit()
         conn.close()
-
         return redirect("/civ7")
+
     except Exception as e:
         return f"Error adding combo: {e}", 500
 

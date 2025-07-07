@@ -1,115 +1,215 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h2>Create a Custom Combo</h2>
+<!-- Responsive layout styles -->
+<style>
+  .responsive-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 30px;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+  }
 
-<label>Select a Predefined Leader:</label><br>
-<select id="leader-select">
-    <option value="">-- Choose a Leader --</option>
-</select><br><br>
+  #form-panel,
+  #preview-panel {
+    width: 48%;
+    min-width: 300px;
+  }
 
-<label>Select a Civilization:</label><br>
-<select id="civ-select">
-    <option value="">-- Choose a Civ --</option>
-</select><br><br>
+  @media (max-width: 768px) {
+    .responsive-container {
+      flex-direction: column;
+      align-items: stretch;
+    }
 
-<form action="/add_combo" method="POST">
-    <label>Leader:</label><br>
-    <input type="text" name="leader" required><br>
+    #form-panel,
+    #preview-panel {
+      width: 100%;
+    }
+  }
 
-    <label>Civilization:</label><br>
-    <input type="text" name="civ" required><br>
+  .saved-combos-section {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
 
-    <label>Leader Abilities:</label><br>
-    <textarea name="abilities" required></textarea><br>
+  .saved-combos-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+</style>
 
-    <label>Civilization Bonuses:</label><br>
-    <textarea id="civ-bonuses" readonly></textarea><br>
+<!-- Combo builder layout -->
+<div class="responsive-container">
+  <!-- Form Panel -->
+  <div id="form-panel">
+    <h2>Create a Custom Combo</h2>
 
-    <label>Synergy Explanation:</label><br>
-    <textarea name="synergy" required></textarea><br><br>
+    <label>Select a Predefined Leader:</label><br>
+    <select id="leader-select">
+      <option value="">-- Choose a Leader --</option>
+    </select><br><br>
 
-    <button type="submit">Add Combo</button>
-</form>
+    <label>Select a Civilization:</label><br>
+    <select id="civ-select">
+      <option value="">-- Choose a Civ --</option>
+    </select><br><br>
 
-    <script>
-    let leaders = {};
-    let civs = {};
+    <form action="/add_combo" method="POST">
+      <label>Leader:</label><br>
+      <input type="text" name="leader" required><br>
 
-    fetch("/static/combos.json")
-        .then(r => r.json())
-        .then(data => {
-            leaders = data;
-            const leaderSelect = document.getElementById("leader-select");
-            for (const key in data) {
-                const option = document.createElement("option");
-                option.value = key;
-                option.textContent = data[key].leader;
-                leaderSelect.appendChild(option);
-            }
-        });
+      <label>Civilization:</label><br>
+      <input type="text" name="civ" required><br>
 
-    fetch("/static/civs.json")
-        .then(r => r.json())
-        .then(data => {
-            civs = data;
-            const civSelect = document.getElementById("civ-select");
-            for (const key in data) {
-                const option = document.createElement("option");
-                option.value = key;
-                option.textContent = data[key].name;
-                civSelect.appendChild(option);
-            }
-        });
+      <label>Leader Abilities:</label><br>
+      <textarea name="abilities" required></textarea><br>
 
-    document.getElementById("leader-select").addEventListener("change", function () {
-        const sel = this.value;
-        if (!sel || !leaders[sel]) return;
-        const combo = leaders[sel];
-        document.querySelector('input[name="leader"]').value = combo.leader;
-        document.querySelector('textarea[name="abilities"]').value = combo.abilities;
-    });
+      <label>Civilization Bonuses:</label><br>
+      <textarea id="civ-bonuses" readonly></textarea><br><br>
 
-    document.getElementById("civ-select").addEventListener("change", function () {
-        const sel = this.value;
-        if (!sel || !civs[sel]) return;
-        const civ = civs[sel];
-        document.querySelector('input[name="civ"]').value = civ.name;
-        document.getElementById("civ-bonuses").value = civ.bonuses;
-    });
-    </script>
-	
-	<h2>Saved Combos</h2>
-
-<div id="combo-container">
-    {% for combo in combos %}
-        <div class="combo" data-civ="{{ combo['civ'] }}" style="border:1px solid #555; padding:15px; margin-bottom:20px; border-radius:6px; background:#222; color:#eee;">
-            <h3>{{ combo['leader'] }} of {{ combo['civ'] }}</h3>
-            <p><strong>Leader Abilities:</strong> {{ combo['abilities'] }}</p>
-            <p class="civ-bonus"><strong>Civ Bonuses:</strong> <em>Loading...</em></p>
-            <p><strong>Synergy:</strong> {{ combo['synergy'] }}</p>
-			
-			 <form action="/delete/{{ combo['id'] }}" method="POST" style="margin-top:10px;">
-        <button type="submit" style="background:#c00; color:#fff; border:none; padding:5px 10px; border-radius:4px;">
-            Delete
-        </button>
+      <button type="submit">Add Combo</button>
     </form>
-        </div>
-    {% endfor %}
+  </div>
+
+  <!-- Live Preview -->
+  <div id="preview-panel" style="background:#1e1e1e; padding:20px; border-radius:10px;">
+    <h2>Live Combo Preview</h2>
+    <div class="combo-card" style="background:#2a2a2a; padding:20px; border-radius:10px; color:#eee;">
+      <h3 id="preview-name">[Select Leader]</h3>
+      <p><strong>Leader Abilities:</strong> <span id="preview-abilities">N/A</span></p>
+      <p><strong>Civ Bonuses:</strong> <span id="preview-bonuses">N/A</span></p>
+    </div>
+  </div>
 </div>
 
+<!-- Saved Combos Section -->
+<div class="saved-combos-section">
+  <!-- Flex container for heading + button -->
+  <div class="saved-combos-header">
+    <h2>Saved Combos</h2>
+    <button onclick="exportCombosToPDF()">Export Saved Combos to PDF</button>
+  </div>
+
+  <div id="combo-container">
+    {% for combo in combos %}
+      <div class="combo" data-civ="{{ combo['civ'] }}" style="border:1px solid #555; padding:15px; margin-bottom:20px; border-radius:6px; background:#222; color:#eee;">
+        <h3>{{ combo['leader'] }} of {{ combo['civ'] }}</h3>
+        <p><strong>Leader Abilities:</strong> {{ combo['abilities'] }}</p>
+        <p class="civ-bonus"><strong>Civ Bonuses:</strong> <em>Loading...</em></p>
+
+        <form action="/delete/{{ combo['id'] }}" method="POST" style="margin-top:10px;">
+          <button type="submit" style="background:#c00; color:#fff; border:none; padding:5px 10px; border-radius:4px;">
+            Delete
+          </button>
+        </form>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<!-- Scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
 <script>
+let leaders = {};
+let civs = {};
+
+// Load leader and civ lists
+fetch("/static/combos.json")
+  .then(r => r.json())
+  .then(data => {
+    leaders = data;
+    const leaderSelect = document.getElementById("leader-select");
+    for (const key in data) {
+      const option = document.createElement("option");
+      option.value = key;
+      option.textContent = data[key].leader;
+      leaderSelect.appendChild(option);
+    }
+  });
+
 fetch("/static/civs.json")
-    .then(r => r.json())
-    .then(data => {
-        document.querySelectorAll(".combo").forEach(div => {
-            const civName = div.getAttribute("data-civ");
-            const match = Object.values(data).find(c => c.name === civName);
-            if (match) {
-                const bonusPara = div.querySelector(".civ-bonus");
-                bonusPara.innerHTML = `<strong>Civ Bonuses:</strong> ${match.bonuses}`;
-            }
-        });
+  .then(r => r.json())
+  .then(data => {
+    civs = data;
+    const civSelect = document.getElementById("civ-select");
+    for (const key in data) {
+      const option = document.createElement("option");
+      option.value = key;
+      option.textContent = data[key].name;
+      civSelect.appendChild(option);
+    }
+
+    document.querySelectorAll(".combo").forEach(div => {
+      const civName = div.getAttribute("data-civ");
+      const match = Object.values(data).find(c => c.name === civName);
+      if (match) {
+        const bonusPara = div.querySelector(".civ-bonus");
+        bonusPara.innerHTML = `<strong>Civ Bonuses:</strong> ${match.bonuses}`;
+      }
     });
+  });
+
+document.getElementById("leader-select").addEventListener("change", function () {
+  const sel = this.value;
+  if (!sel || !leaders[sel]) return;
+  const combo = leaders[sel];
+  document.querySelector('input[name="leader"]').value = combo.leader;
+  document.querySelector('textarea[name="abilities"]').value = combo.abilities;
+  document.getElementById("preview-name").textContent = combo.leader;
+  document.getElementById("preview-abilities").textContent = combo.abilities;
+});
+
+document.getElementById("civ-select").addEventListener("change", function () {
+  const sel = this.value;
+  if (!sel || !civs[sel]) return;
+  const civ = civs[sel];
+  document.querySelector('input[name="civ"]').value = civ.name;
+  document.getElementById("civ-bonuses").value = civ.bonuses;
+  document.getElementById("preview-bonuses").textContent = civ.bonuses;
+});
+
+function exportCombosToPDF() {
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF();
+  let y = 10;
+
+  document.querySelectorAll(".combo").forEach(div => {
+    const title = div.querySelector("h3").innerText;
+    const abilities = div.querySelector("p:nth-of-type(1)").innerText;
+    const bonuses = div.querySelector("p:nth-of-type(2)").innerText;
+
+    const wrappedAbilities = doc.splitTextToSize(abilities, 180);
+    const wrappedBonuses = doc.splitTextToSize(bonuses, 180);
+
+    doc.text(title, 10, y);
+    doc.text(wrappedAbilities, 10, y + 10);
+    doc.text(wrappedBonuses, 10, y + 10 + wrappedAbilities.length * 8);
+
+    const blockHeight =
+      10 +
+      wrappedAbilities.length * 8 +
+      wrappedBonuses.length * 8 +
+      10;
+
+    y += blockHeight;
+
+    if (y > 270) {
+      doc.addPage();
+      y = 10;
+    }
+  });
+
+  doc.save("civ_combos.pdf");
+}
 </script>
+
 {% endblock %}
